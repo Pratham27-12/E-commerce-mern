@@ -13,7 +13,9 @@ process.on("uncaughtException" , (err) =>{
 
 
 //config =>
- dotenv.config({path : "backend/config/config.env"})
+  if(process.env.NODE_ENV !== "production"){
+    dotenv.config({path : "backend/config/config.env"});
+  }
 // Connect With MongoDB
 connectDB();
 

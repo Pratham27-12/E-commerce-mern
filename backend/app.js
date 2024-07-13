@@ -6,7 +6,10 @@ const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload"); // used for image and other files
 const path = require("path");
 const cors = require("cors");
-require("dotenv").config({ path: "./config/config.env" });
+
+if(process.env.NODE_ENV !== "production"){
+  require("dotenv").config({ path: "./config/config.env" });
+}
 
 // routes
 
@@ -31,11 +34,10 @@ app.use("/api/v1", payment);
 
 const __dirname1 = path.resolve();
 
-app.use(express.static(path.join(__dirname1, "/frotend/build")));
+app.use(express.static(path.join(__dirname1, "/frontend/build")));
 
 app.get("*", (req, res) =>
-  res.sendFile(path.resolve(__dirname1, "frotend", "build", "index.html"))
+  res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"))
 );
-
 
 module.exports = app;

@@ -80,7 +80,8 @@ exports.forgotPassword = asyncWrapper(async (req, res, next) => {
 
   const isLocal = req.hostname === "localhost" || req.hostname === "127.0.0.1";
   if (isLocal) {
-    resetPasswordUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
+    // resetPasswordUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
+    resetPasswordUrl = `${req.protocol}://${req.get("host")}/password/reset/${resetToken}`;
   } else {
     resetPasswordUrl = `${req.protocol}://${req.get(
       "host"
