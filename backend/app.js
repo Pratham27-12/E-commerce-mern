@@ -7,9 +7,9 @@ const fileUpload = require("express-fileupload"); // used for image and other fi
 const path = require("path");
 const cors = require("cors");
 
-if(process.env.NODE_ENV !== "production"){
-  require("dotenv").config({ path: "./config/config.env" });
-}
+// if(process.env.NODE_ENV !== "production"){
+//   require("dotenv").config({ path: "./config/config.env" });
+// }
 
 // routes
 

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-if(process.env.NODE_ENV !== "production"){
-    require("dotenv").config({ path: "backend/config/config.env" })
-}
+// if(process.env.NODE_ENV !== "production"){
+//     require("dotenv").config({ path: "backend/config/config.env" })
+// }
 function connectDB(){
     mongoose.set("strictQuery", false); 
   
